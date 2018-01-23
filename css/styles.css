@@ -2,6 +2,10 @@ h1 {
   font-family: cursive;
 }
 
+h2 {
+  font-family: Verdana;
+}
+
 #show-contact {
   display: none;
 }
@@ -13,4 +17,8 @@ h1 {
 
 .contact:hover {
   text-decoration: underline;
+}
+
+.hideInfo {
+ display:none;
 }

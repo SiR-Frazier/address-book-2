@@ -23,7 +23,7 @@ Contact.prototype.phoneEmail = function (){
 }
 
 Address.prototype.fullAddress = function () {
-  return this.street + " , " + this.city + " , " + this.state + " " + this.zip;
+  return this.street + " " + this.city + ", " + this.state + " " + this.zip;
 }
 
 //front-end logic
@@ -46,7 +46,11 @@ $(document).ready(function() {
     var newAddress = new Address (inputtedStreet, inputtedCity, inputtedState, inputtedZip);
     newContact.addresses.push(newAddress);
 
-    $("ul#contacts").append(newContact.fullName());
+    $("ul#contacts").append('<span class="fullName">' + newContact.fullName() + '</span><br>' + '<div class="hideInfo">'+ newContact.phoneEmail()+ '<br>' + newAddress.fullAddress() + '</div>');
+
+    $("#new-contact")[0].reset();
+
+
     });
   });
 });
