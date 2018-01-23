@@ -42,15 +42,16 @@ $(document).ready(function() {
     var inputtedCity = $(this).find("input#city").val();
     var inputtedState = $(this).find("input#state").val();
     var inputtedZip = $(this).find("input#zip").val();
-
     var newAddress = new Address (inputtedStreet, inputtedCity, inputtedState, inputtedZip);
     newContact.addresses.push(newAddress);
 
-    $("ul#contacts").append('<span class="fullName">' + newContact.fullName() + '</span><br>' + '<div class="hideInfo">'+ newContact.phoneEmail()+ '<br>' + newAddress.fullAddress() + '</div>');
+    $("ul#contacts").append('<li><span class="fullName">' + newContact.fullName() + '</span><br>' + '<div class="hideInfo">'+ newContact.phoneEmail()+ '<br>' + newAddress.fullAddress() + '</li></div>');
 
     $("#new-contact")[0].reset();
+    });
 
-
+    $(".fullName").unbind("click").click(function() {
+       $(this).nextAll(".hideInfo").first().slideToggle("slow");
     });
   });
 });
